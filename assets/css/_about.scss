@@ -1,0 +1,65 @@
+@import 'mixins';
+@import 'variables';
+.about{
+    padding: $space-60 0;
+    &__content{
+        margin-bottom: $space-48;
+        padding-bottom: $space-48;
+    }
+    &__title-row{
+        margin-bottom: $space-48;
+        width: 100%;
+        @include display(flex,center);
+
+    }
+
+    &__content{
+        text-align: center;
+    }
+
+    &__topic{
+        @include titleSize;
+        color: $title-color;
+        padding-bottom: $space-16;
+        @include separateTitle;
+
+        &-sub{
+            font-size: 1.3rem;
+            font-family: $font-italic;
+            margin-top: $space-16;
+        }
+    }
+
+
+
+
+    &__basic{
+        text-align: left;
+        margin-bottom: $space-30;
+    }
+
+    &__title{
+        margin-bottom: $space-16;
+        font-family: $font-italic;
+        color: $title-color;
+    }
+
+    &__data{
+        margin-bottom: $space-16;
+    }
+
+    &__tag{
+        text-transform: uppercase;
+        margin-right: $space-16;
+    }
+
+    &__img{
+        @include display(flex,center);
+        align-items: center;
+
+        & img{
+            width: 80%;
+        }
+    }
+
+}

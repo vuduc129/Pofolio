@@ -1,0 +1,202 @@
+@import 'mixins';
+@import 'variables';
+
+@keyframes onOff {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+
+}
+
+
+.slider{
+    background-color: black;
+    position: relative;
+    width: 100%;
+    overflow-x: hidden;
+    
+    &__container{
+        margin-top: $header-height;
+        @include display(flex,unset);
+        align-items: center;
+        @media (max-width:770px) {
+            margin-top: 0;
+        }
+
+    }
+
+    &__left{
+        @include display(flex,unset);
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    &__right{
+        z-index: 10;
+    }
+    &__content{
+        margin-top: $space-16;
+    }
+
+    &__desc{
+        font-family: $font-italic;
+    }
+
+    &__button{
+        margin: $space-30 0;
+        display: inline-block;
+        overflow: hidden;
+        @include Button ($purple);
+        position: relative;
+        z-index: 10;
+        
+        &::after{
+            content:'';
+            position: absolute;
+            width: 60%;
+            height: 120%;
+            transform:skew(30deg) translateX(-100%);
+            left:-10px;
+            top: 0;
+            background-image:linear-gradient($purple,$pink);
+            transition: all 0.4s ease-in-out;
+            z-index: -1;
+        }
+
+        &::before{
+            content:'';
+            position: absolute;
+            width: 60%;
+            height: 120%;
+            transform:skew(30deg) translateX(100%);
+            right:-18px;
+            top: 0;
+            background-image:linear-gradient($purple,$pink);
+            transition: all 0.4s ease-in-out;
+            z-index: -1;
+        }
+
+        &:hover{
+            cursor: pointer;
+            &::after{
+                transform:skew(30deg) translateX(0);
+            }
+            &::before{
+                transform:skew(30deg) translateX(0);
+            }
+        }
+    }
+
+    &__link{
+        color: $text-L-color;
+        transition: all 0.4s ease-in-out;
+    }
+
+
+
+    &__title{
+        z-index: 100;
+
+        &.active .slider__letter{
+
+            &:first-child{
+                @include transition;
+                @include translate-after
+            }
+
+            &:nth-child(2){
+                @include transition(0.2s);
+                @include translate-after
+
+            }
+            &:nth-child(3){
+                @include transition(0.4s);
+                @include translate-after
+
+            }
+            &:nth-child(4){
+                @include transition(0.6s);
+                @include translate-after
+
+            }
+            &:nth-child(5){
+                @include transition(0.8s);
+                @include translate-after
+            }
+            &:nth-child(6){
+                @include transition(1s);
+                @include translate-after
+            }
+            &:nth-child(7){
+                @include transition(1.2s);
+                @include translate-after
+            }
+            &:nth-child(8){
+                @include transition(1.4s);
+                @include translate-after
+            }
+            &:nth-child(9){
+                @include transition(1.6s);
+                @include translate-after
+            }
+            &:nth-child(10){
+                @include transition(1.8s);
+                @include translate-after
+            }
+            &:nth-child(11){
+                @include transition(2s);
+                @include translate-after
+            }
+            &:nth-child(12){
+                @include transition(2.2s);
+                @include translate-after
+            }
+            &:nth-child(13){
+                @include transition(2.4s);
+                @include translate-after
+            }
+    
+            &:nth-child(14){
+                @include transition(2.6s);
+                @include translate-after
+            }
+        }
+    }
+
+    &__letter{
+        @include sliderText;
+        font-family: $font-title;
+        text-shadow: -5px 2px $pink;
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(-10%);
+
+        &:hover{
+            color: $pink;
+            text-shadow: -5px 2px $purple;
+            transform: translateY(-10%) rotate(5deg) !important;
+            cursor:default;
+
+            transition: all linear 0s !important;
+        }
+    }
+
+    
+}
+
+.title{
+    flex-wrap: wrap;
+    &__section{
+        @include display(flex,start);
+        & + .title__section{
+            margin-left: 20px;
+        }
+    }
+
+
+}
+
+

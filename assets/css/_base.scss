@@ -1,0 +1,75 @@
+@import 'variables';
+
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+html{
+    width: 100%;
+    overflow-x: hidden;
+    font-size: 62.5%;
+}
+
+body{
+    width: 100%;
+    @include text;
+    overflow-X:hidden ;
+    font-family: $font-text;
+}
+
+p,h1,h2,h3,h4,h5{
+    margin:0;
+}
+
+a{
+    text-decoration: none;
+    color: unset;
+    &:hover{
+        color: unset;
+    }
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+    margin:0;
+}
+
+input{
+    outline: none;
+}
+
+textarea{
+    outline: none;
+}
+
+button{
+    outline: none;
+}
+
+.main{
+    width: 100%;
+    background-color: #000;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.bpurple{
+    border-top: 5px solid #fff;
+}
+
+.bpink{
+    border-top: 5px solid #fff;
+}
+
+canvas{
+    position: absolute;
+}
+
+@media (min-width:1400px) {
+    .container{
+        width: 1140px;
+    }
+}

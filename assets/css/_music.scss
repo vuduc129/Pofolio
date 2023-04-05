@@ -1,0 +1,45 @@
+@import 'variables';
+@import 'mixins';
+
+.music{
+    position: fixed;
+    top:80px;
+    right: 10px;
+    max-height: 150px;
+    width: 300px;
+    background-color: rgba(255,255,255,0.4);
+    padding: $space-8;
+    border-left: 6px solid $pink;
+    @include transition;
+    &.hide{
+        transform: translateX(105%);
+        opacity: 0;
+        transition-delay: 3s ;
+    }
+
+    &__img{
+        width: 80px;
+        object-fit: cover;
+        flex:1;
+        margin-right: $space-8;
+    }
+
+    &__tab{
+        @include display(flex,space-between);
+
+    }
+
+    &__control{
+        @include display(flex,space-around);
+        align-items: center;
+        margin-top: $space-16;
+    }
+
+    &__button{
+        @include display (flex,center);
+        align-items: center;
+        background-color: black;
+        padding: 0 $space-8;
+        cursor: pointer;
+    }
+}

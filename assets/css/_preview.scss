@@ -1,0 +1,134 @@
+@import 'variables';
+@import 'mixins';
+
+.preview{
+    position: fixed;
+    left:0;
+    right:0;
+    top:0;
+    bottom: 0;
+    z-index: 10000;
+    background-color: rgba(0,0,0,0.4);
+    display:none;
+
+    &.active{
+        display:block;
+    }
+
+    &__container{
+        background-color: black;
+        height: 100%;
+        position: relative;
+    }
+
+    &__close{
+        position: absolute;
+        top:20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        border: 1px solid $purple;
+        @include display(flex,center);
+        align-items: center;
+        font-size: 2.5rem;
+        border-radius: 100%;
+        cursor: pointer;
+
+        &::after{
+            content:'';
+            position: absolute;
+            width: 3px;
+            height: 60%;
+            background-image:linear-gradient($purple,$pink) ;
+            border-radius: 999px;
+            transform: rotate(45deg);
+            @include transition
+        }
+
+        &::before{
+            content:'';
+            position: absolute;
+            width: 3px;
+            height: 60%;
+            background-image:linear-gradient($purple,$pink) ;
+            border-radius: 999px;
+            transform: rotate(-45deg);
+            @include transition
+        }
+
+        &:hover.preview__close{
+            &::before{
+                transform: rotate(45deg);
+
+            }
+            &::after{
+                transform: rotate(-45deg);
+
+            }
+        }
+        
+    }
+
+    &__name{
+        font-family: $font-title;
+        text-align: center;
+        font-size: $special-size;
+        padding: $space-30 0;
+    }
+
+    &__slide img{
+        width: 100%;
+        max-height: 400px;
+        object-fit: contain;
+    }
+
+    .swiper-button{
+
+        &-next{
+            i{
+                color: $text-L-color;
+                font-size: $title-size;
+            }
+            &::after{
+                display:none;
+            }
+
+            &:hover{
+                opacity: 1;
+            }
+        }
+
+        &-prev{
+            i{
+                color: $text-L-color;
+                font-size: $title-size;
+            }
+            &::after{
+                display:none;
+            }
+        }
+    }
+
+    &__detail{
+        padding: $space-30;
+    }
+}
+
+.detail{
+
+    &__block{
+        @include display(flex,unset);
+        padding: $space-8;
+    }
+
+    &__icon{
+        width: 20px;
+        height: 20px;
+        margin-right: $space-8;
+    }
+
+    &__tag{
+        margin-right: $space-8;
+        font-family: $font-title;
+    }
+}

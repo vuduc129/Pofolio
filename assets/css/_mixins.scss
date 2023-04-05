@@ -1,0 +1,119 @@
+@import 'variables';
+
+@mixin display($type,$justify){
+    display: $type;
+    justify-content: $justify;
+}
+
+@mixin text($color:$text-L-color,$size: $text-size){
+    color: $color;
+    font-size: $text-size;
+}
+
+@mixin sliderText($size: 9rem){
+    font-size: $size;
+
+    @media (max-width:770px) {
+        font-size: 7rem;
+    }
+
+    @media (max-width:470px) {
+        font-size: 4rem;
+    }
+}
+
+@mixin titleSize($font: $font-title) {
+    font-size: $title-size;
+    font-family: $font;
+    padding: $space-16 0;
+
+    @media (max-width:470px) {
+        font-size: 3rem;
+    }
+}
+
+@mixin Button ($bcolor: white){
+     border: 1px solid $bcolor;
+     padding: 12px 16px;
+}
+
+@mixin separateTitle{
+    display: inline-block;
+    position: relative;
+
+    &::after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%;
+        height: 2px;
+        background-image: linear-gradient(to right ,$purple,$pink);
+    }
+}
+
+@mixin subTitle{
+    font-family: $font-italic;
+    font-size: 1.3rem;
+    margin-top: $space-16;
+}
+
+@mixin transition($delay:0s){
+    transition: all ease-in-out 0.4s $delay;
+}
+
+@mixin translate-before {
+    opacity: 0;
+    transform: translateY(-10%);
+}
+
+@mixin translate-after{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@mixin waveDelay{
+    &:first-child{
+        @include transition
+    }
+    &:nth-child(1){
+        @include transition(0.2s)
+    }
+    &:nth-child(2){
+        @include transition(0.4s)
+    }
+    &:nth-child(3){
+        @include transition(0.6s)
+    }
+    &:nth-child(4){
+        @include transition(0.8s)
+    }
+    &:nth-child(5){
+        @include transition(1s)
+    }
+    &:nth-child(6){
+        @include transition(1.2s)
+    }
+}
+
+@mixin buttonAnimation {
+    position: relative;
+    overflow: hidden;
+
+    &::after{
+        content:'';
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 60%;
+        height: 100%;
+        transform: skew(10deg);
+        background-image: linear-gradient($purple,$pink);
+    }
+}
+
+
+
+
+
